@@ -21,7 +21,7 @@ export default props => (
                 userTotalCashback='R$ 93,87'
                 userTotalProducts='103'
                 userPhotoURL='https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg'
-                bgColor = 'bg-yellow'
+                bgColor = 'bg-aqua-active'
             />
         </div>
         <div className='col-md-4'>
@@ -30,7 +30,7 @@ export default props => (
                 userTotalCashback='R$ 14,59'
                 userTotalProducts='21'
                 userPhotoURL='https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg'
-                bgColor = 'bg-red'
+                bgColor = 'bg-aqua-active'
             />
         </div>
     </div>

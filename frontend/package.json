@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {},
+  "dependencies": {
+    "react-input-mask": "^2.0.4"
+  },
   "devDependencies": {
     "admin-lte": "2.3.6",
     "axios": "0.15.3",

@@ -10,7 +10,6 @@ class Dashboard extends Component {
     render() {
         return (
         <div>
-            <ContentHeader  /*small='Visão geral de CashBack'*/ />
             <Content>
                 <legend>Últimos colaboradores cadastrados</legend>
               <Row>
