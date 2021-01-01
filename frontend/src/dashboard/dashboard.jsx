@@ -1,32 +1,50 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
 import ValueBox from '../common/widget/valueBox'
 import BoxContainer from '../common/widget/userBox/boxContainer'
 import Row from '../common/layout/row'
+import { getSummary} from './dashboardActions'
 
 class Dashboard extends Component {
+
+    componentWillMount(){
+        this.props.getSummary()
+    }
+
     render() {
+        console.log(this.props.listLastDealers)
         return (
-        <div>
-            <Content>
-                <legend>Últimos colaboradores cadastrados</legend>
-              <Row>
-                <BoxContainer cols='12 4' color='blue' icon='user'
-                    userName='João Francisco' userRank='Revendedor Platina'/>
-              </Row>
-              <legend>Totalizadores</legend>
-              <Row>
-                <ValueBox cols='12 4' color='green' icon='money' 
-                    value='R$ 266,26' text='de cashback acumulado' />
-                <ValueBox cols='12 4' color='blue' icon='users' 
-                    value='5' text='colaboradores cadastrados no total' />
-                <ValueBox cols='12 4' color='purple' icon='bank' 
-                    value='935' text='novos pedidos de cashback' />
-              </Row>
-            </Content>
-        </div>)
+            <div>
+                <Content>
+                    <legend>Últimos colaboradores cadastrados</legend>
+                    <Row>
+                        <BoxContainer cols='12 4'/>
+                    </Row>
+                    <legend>Totalizadores</legend>
+                    <Row>
+                        <ValueBox cols='12 4' color='green' icon='money'
+                            value={`R$${this.props.totalCashBack}`} 
+                            text='de cashback acumulado'/>
+                        <ValueBox cols='12 4' color='blue' icon='usaers'
+                            value={this.props.totalDealers} 
+                            text='colaboradores cadastrados no total' />
+                        <ValueBox cols='12 4' color='purple' icon='bank'
+                            value={this.props.totalNewCashBackOrders}
+                            text='novos pedidos de cashback (Em Análise)' />
+                    </Row>
+                </Content>
+            </div>)
     }
 }
-export default Dashboard
+const mapStateToProps = state => ({
+    listDealers: state.dashboard.listDealers, 
+    listLastDealers: state.dashboard.listLastDealers,
+    totalCashBack: state.dashboard.totalCashBack, 
+    totalDealers:state.dashboard.totalDealers, 
+    totalNewCashBackOrders: state.dashboard.totalNewCashBackOrders
+})
+const mapDispatchToProps = dispatch => bindActionCreators({getSummary}, dispatch) 
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

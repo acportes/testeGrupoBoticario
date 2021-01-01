@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
 import UserBoxFooter from '../userBox/userBoxFooter'
+import UserAvatar from '../../../assets/user_avatar.png'
 
 class UserBox extends Component {
 
+    /*
     defineUserPhoto(userPhotoURL) {
 
         const basePhoto = 'https://pixabay.com/pt/vectors/usu%C3%A1rio-%C3%ADcone-pessoa-pessoal-2935527/'
@@ -13,9 +15,10 @@ class UserBox extends Component {
         else
             return basePhoto
     }
+    */
 
     render() {
-        const userPhoto = this.defineUserPhoto(this.props.userPhotoURL)
+        //const userPhoto = this.defineUserPhoto(this.props.userPhotoURL)
         return (
             <div className='box box-widget widget-user'>
                 <div className={`widget-user-header ${this.props.bgColor}`}>
@@ -23,7 +26,7 @@ class UserBox extends Component {
                 </div>
                 <div className='widget-user-image'>
                     <img className="img-circle"
-                        src={userPhoto}
+                        src={UserAvatar}
                         alt="User Avatar" />
                 </div>
                 <UserBoxFooter

@@ -1,0 +1,22 @@
+{
+  "name": "my-money-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/loader.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-query-int": "^1.0.1",
+    "json-server": "^0.16.3",
+    "jsonwebtoken": "7.3.0",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {}
+}

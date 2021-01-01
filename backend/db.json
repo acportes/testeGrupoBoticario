@@ -1,0 +1,139 @@
+{
+    "dealers": [
+      {
+        "id": 1,
+        "name": "João Francisco dos Santos",
+        "cpf": "984.924.326-08",
+        "email": "joaofsantos@gmail.com",
+        "password": "teste",
+        "Purchases": [
+          {
+            "id" : 1,
+            "value": 35.90,
+            "date": "2020-12-25T09:32:43.511Z",
+            "Cashback": {
+              "id": 1,
+              "status": "Aprovado",
+              "cashBackValue" : 3.59
+            }
+          },
+          {
+            "id" : 2,
+            "value": 1599.99,
+            "date": "2020-12-26T18:10:43.511Z",
+            "Cashback": {
+              "id": 2,
+              "status": "Reprovado",
+              "cashBackValue" : 0
+            }
+          },
+          {
+            "id" : 3,
+            "value": 124.99,
+            "date": "2020-12-27T14:32:43.511Z",
+            "Cashback": {
+              "id": 3,
+              "status": "Em validação",
+              "cashBackValue" : 6.24
+            }
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Fernando Veiga da Silva",
+        "cpf": "84666604618",
+        "email": "fernandovsilva@gmail.com",
+        "password": "teste",
+        "Purchases": [
+          {
+            "id" : 4,
+            "value": 11.20,
+            "date": "2020-12-27T11:40:00.511Z",
+            "Cashback": {
+              "id": 4,
+              "status": "Aprovado",
+              "cashBackValue" : 1.20
+            }
+          },
+          {
+            "id" : 5,
+            "value": 73.98,
+            "date": "2020-12-27T11:41:43.511Z",
+            "Cashback": {
+              "id": 5,
+              "status": "Aprovado",
+              "cashBackValue" : 7.39
+            }
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Lúcia Matto dos Santos",
+        "cpf": "84412037681",
+        "email": "luciamdsantos@gmail.com",
+        "password": "teste",
+        "Purchases": [
+          {
+            "id" : 6,
+            "value": 9.99,
+            "date": "2020-12-27T11:42:11.511Z",
+            "Cashback": {
+              "id": 6,
+              "status": "Aprovado",
+              "cashBackValue" : 0.99
+            }
+          },
+          {
+            "id" : 7,
+            "value": 99.99,
+            "date": "2020-12-27T12:01:57.511Z",
+            "Cashback": {
+              "id": 7,
+              "status": "Em validação",
+              "cashBackValue" : 9.99
+            }
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Ana Carolina Pontes",
+        "cpf": "57983493657",
+        "email": "anacpontes@gmail.com",
+        "password": "teste",
+        "Purchases": [
+          {
+            "id" : 8,
+            "value": 254.37,
+            "date": "2020-12-28T08:01:45.511Z",
+            "Cashback": {
+              "id": 8,
+              "status": "Aprovado",
+              "cashBackValue" : 12.71
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Lucimara Reis Neto",
+        "cpf": "41212258649",
+        "email": "lucimararneto@gmail.com",
+        "password": "teste",
+        "Purchases": [
+          {
+            "id" : 9,
+            "value": 254.37,
+            "date": "2020-12-28T21:11:06.511Z",
+            "Cashback": {
+              "id": 9,
+              "status": "Aprovado",
+              "cashBackValue" : 12.71
+            }
+          }
+        ]
+      }
+    ]
+  }
