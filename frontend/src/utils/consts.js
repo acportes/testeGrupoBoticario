@@ -1,3 +1,6 @@
 export default{
-    CASHBACK_STATUS_EM_VALIDACAO: 'Em validação'
+    CASHBACK_STATUS_APROVADO: 'Aprovado',
+    CASHBACK_STATUS_EM_VALIDACAO: 'Em validação',
+    CASHBACK_STATUS_REPROVADO: 'Reprovado',
+    LIST_DEALERS : 'LIST_DEALERS'
 }

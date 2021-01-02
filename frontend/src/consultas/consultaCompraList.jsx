@@ -1,18 +1,43 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Content from '../common/template/content'
+import { getSummary } from '../dashboard/dashboardActions'
+import consts from '../utils/consts'
+
+
+function applyCustomTextColor(status){
+    if(status == consts.CASHBACK_STATUS_APROVADO)
+        return 'text-approved'
+    else if(status == consts.CASHBACK_STATUS_REPROVADO)
+        return 'text-repproved'
+    else
+        return 'text-inanalysis'
+}
 
 class ConsultaCompraList extends Component {
 
-    renderRows(){
-        const list = this.props.list || []
-        return list.map(obj=> (
-            <tr key={obj._id}>
-                <td>{obj.value}</td>
+    componentDidMount() {
+        this.props.getSummary()
+    }
+
+    renderRows() {
+        const listDealers = this.props.listDealers || []
+        const listPurchases = []
+        listDealers.forEach(dl => {
+            listPurchases.push(dl.Purchases)
+        });
+
+        return listPurchases.flat().map(obj => (
+            <tr key={obj.id}>
+                <td>{obj.id}</td>
+                <td>{`R$ ${+(Math.floor((obj.value * 100) / 100))}`}</td>
                 <td>{obj.date}</td>
-                <td>{obj.percentCashback}</td>
-                <td>{obj.valueCashback}</td>
-                <td>{obj.status}</td>
+                <td>{obj.Cashback.cashBackPercent}</td>
+                <td>{`R$ ${obj.Cashback.cashBackValue}`}</td>
+                <td className={applyCustomTextColor(obj.Cashback.status)}>{obj.Cashback.status}
+                </td>
             </tr>
         ))
     }
@@ -53,4 +78,8 @@ class ConsultaCompraList extends Component {
     }
 }
 
-export default ConsultaCompraList
+const mapStateToProps = state => ({
+    listDealers: state.dashboard.listDealers
+})
+const mapDispatchToProps = dispatch => bindActionCreators({ getSummary }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(ConsultaCompraList)

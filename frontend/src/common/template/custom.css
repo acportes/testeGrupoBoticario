@@ -11,3 +11,16 @@ button {
 .table-actions {
     width: 150px;
 }
+
+.text-approved{
+    color:rgb(148, 214, 16);
+    font-weight: bold;
+}
+.text-inanalysis{
+    color:rgb(207, 204, 5);
+    font-weight: bold;
+}
+.text-repproved{
+    color:rgb(233, 48, 16);
+    font-weight: bold;
+}

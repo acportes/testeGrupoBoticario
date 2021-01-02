@@ -18,7 +18,7 @@ class BoxContainer extends Component {
         return getTotalProductsValue(list)
     }
 
-    renderUserBox(index) {
+    renderUserBox() {
         const listDealers = this.props.listLastDealers || []
 
         return listDealers.map(obj => (

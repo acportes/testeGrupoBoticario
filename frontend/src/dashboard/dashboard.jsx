@@ -6,30 +6,29 @@ import Content from '../common/template/content'
 import ValueBox from '../common/widget/valueBox'
 import BoxContainer from '../common/widget/userBox/boxContainer'
 import Row from '../common/layout/row'
-import { getSummary} from './dashboardActions'
+import { getSummary } from './dashboardActions'
 
 class Dashboard extends Component {
 
-    componentWillMount(){
+    componentDidMount() {
         this.props.getSummary()
     }
 
     render() {
-        console.log(this.props.listLastDealers)
         return (
             <div>
                 <Content>
                     <legend>Últimos colaboradores cadastrados</legend>
                     <Row>
-                        <BoxContainer cols='12 4'/>
+                        <BoxContainer cols='12 4' />
                     </Row>
                     <legend>Totalizadores</legend>
                     <Row>
                         <ValueBox cols='12 4' color='green' icon='money'
-                            value={`R$${this.props.totalCashBack}`} 
-                            text='de cashback acumulado'/>
+                            value={`R$${this.props.totalCashBack}`}
+                            text='de cashback acumulado' />
                         <ValueBox cols='12 4' color='blue' icon='usaers'
-                            value={this.props.totalDealers} 
+                            value={this.props.totalDealers}
                             text='colaboradores cadastrados no total' />
                         <ValueBox cols='12 4' color='purple' icon='bank'
                             value={this.props.totalNewCashBackOrders}
@@ -40,11 +39,11 @@ class Dashboard extends Component {
     }
 }
 const mapStateToProps = state => ({
-    listDealers: state.dashboard.listDealers, 
+    listDealers: state.dashboard.listDealers,
     listLastDealers: state.dashboard.listLastDealers,
-    totalCashBack: state.dashboard.totalCashBack, 
-    totalDealers:state.dashboard.totalDealers, 
+    totalCashBack: state.dashboard.totalCashBack,
+    totalDealers: state.dashboard.totalDealers,
     totalNewCashBackOrders: state.dashboard.totalNewCashBackOrders
 })
-const mapDispatchToProps = dispatch => bindActionCreators({getSummary}, dispatch) 
+const mapDispatchToProps = dispatch => bindActionCreators({ getSummary }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

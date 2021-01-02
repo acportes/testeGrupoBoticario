@@ -1,5 +1,4 @@
 import React from 'react'
-import InputMask from "react-input-mask";
 
 import Content from '../common/template/content'
 

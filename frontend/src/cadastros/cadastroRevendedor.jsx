@@ -17,12 +17,6 @@ export default props => (
                                 placeholder='Informe o nome'></input>
                         </div>
                         <div className='form-group'>
-                            <label>URL foto</label>
-                            <input type='string'
-                                className='form-control'
-                                placeholder='Informe a URL da foto'></input>
-                        </div>
-                        <div className='form-group'>
                             <label>CPF</label>
                             <input type='string'
                                 className='form-control'
