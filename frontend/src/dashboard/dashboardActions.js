@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-import { getDealersFromSessionStorage } from '../utils/storageManager'
-import Consts from '../utils/consts'
+import { getDealersFromSessionStorage, setDealersInSessionStorage } from '../utils/storageManager'
 
 const BASE_URL = 'http://localhost:3030/dealers'
 
@@ -12,7 +11,7 @@ export function getSummary(){
     return dispatch => {
         if(listDealers == null){
             axios.get(BASE_URL).then((response) => {
-                sessionStorage.setItem(Consts.LIST_DEALERS, JSON.stringify(response.data))
+                setDealersInSessionStorage(response.data)
                 dispatch({
                     type: 'FETCH_DASHBOARD',
                     payload: response.data

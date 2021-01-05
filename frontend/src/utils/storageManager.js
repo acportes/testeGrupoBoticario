@@ -7,5 +7,5 @@ export function getDealersFromSessionStorage(){
 }
 
 export function setDealersInSessionStorage(listDealers){
-    sessionStorage.setItem(consts.LIST_DEALERS,JSON.stringify(listDealers))
+    sessionStorage.setItem(consts.LIST_DEALERS, JSON.stringify(listDealers))
 }

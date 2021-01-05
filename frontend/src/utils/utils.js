@@ -1,7 +1,7 @@
 import consts from '../utils/consts'
 
 export function getLastDealers(listDealers) {
-    return listDealers.slice(Math.max(listDealers.length - 3, 0))
+    return listDealers.slice(Math.max(listDealers.length - 3, 0)).reverse()
 }
 
 export function getTotalCashBack(listDealers) {
@@ -27,6 +27,15 @@ export function getTotalProductsValue(listDealers){
        });
     });
     return sumTotalProductValue
+}
+
+export function getCashBackPercentByPurchaseValue(purchaseValue){
+    if(purchaseValue < 100)
+        return 10
+    else if(purchaseValue > 100 && purchaseValue < 1000)
+        return 5
+    else
+        return 2
 }
 
 function getListCashBack(listDealers){

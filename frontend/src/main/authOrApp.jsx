@@ -6,10 +6,8 @@ import Login from '../auth/login'
 
 
 class AuthOrAPP extends Component {
-
     render() {
-        <div>
-            
-        </div>
+        return <App>{this.props.children}</App>
     }
 }
+export default AuthOrAPP

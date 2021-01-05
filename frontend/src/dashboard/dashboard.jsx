@@ -32,7 +32,7 @@ class Dashboard extends Component {
                             text='colaboradores cadastrados no total' />
                         <ValueBox cols='12 4' color='purple' icon='bank'
                             value={this.props.totalNewCashBackOrders}
-                            text='novos pedidos de cashback (Em Análise)' />
+                            text='novos pedidos de cashback (Em Validação)' />
                     </Row>
                 </Content>
             </div>)

@@ -5,20 +5,7 @@ import UserAvatar from '../../../assets/user_avatar.png'
 
 class UserBox extends Component {
 
-    /*
-    defineUserPhoto(userPhotoURL) {
-
-        const basePhoto = 'https://pixabay.com/pt/vectors/usu%C3%A1rio-%C3%ADcone-pessoa-pessoal-2935527/'
-
-        if (userPhotoURL !== undefined)
-            return userPhotoURL
-        else
-            return basePhoto
-    }
-    */
-
     render() {
-        //const userPhoto = this.defineUserPhoto(this.props.userPhotoURL)
         return (
             <div className='box box-widget widget-user'>
                 <div className={`widget-user-header ${this.props.bgColor}`}>
