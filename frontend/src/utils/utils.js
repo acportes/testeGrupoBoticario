@@ -38,6 +38,15 @@ export function getCashBackPercentByPurchaseValue(purchaseValue){
         return 2
 }
 
+export function parseJSONError(errorResponse){
+    var jsonError = JSON.stringify(errorResponse.response.data)
+    var jsonparsed = JSON.parse(jsonError)
+    var message = Object.keys(jsonparsed).map(function(k) {
+        return jsonparsed[k];
+      });
+    return message
+}
+
 function getListCashBack(listDealers){
     var listCashBack = []
     listDealers.forEach(dealer => {

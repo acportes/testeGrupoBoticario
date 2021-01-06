@@ -220,10 +220,10 @@ class CadastroRevendedor extends Component {
                             <div className='box-footer'>
                                 <button type='submit' className='btn btn-primary'
                                     style={{ minWidth: '100px' }}
-                                    onClick={() => this.onSave()}>Salvar</button>
+                                    onClick={this.onSave}>Salvar</button>
                                 <button type='button' className='btn btn-default'
                                     style={{ minWidth: '100px' }}
-                                    onClick={() => this.onCancel()}>Cancelar</button>
+                                    onClick={this.onCancel}>Cancelar</button>
                             </div>
 
                         </div>
