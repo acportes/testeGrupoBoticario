@@ -6,7 +6,7 @@ import { getDealersFromSessionStorage, setDealersInSessionStorage } from '../uti
 
 const BASE_URL = 'http://localhost:3030/dealers'
 
-export function getSummary(token) {
+export function getSummary() {
 
     var listDealers = getDealersFromSessionStorage()
 

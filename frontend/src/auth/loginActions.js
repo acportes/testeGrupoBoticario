@@ -12,8 +12,11 @@ export function login(values) {
                     { type: 'USER_FETCHED', payload: response.data }
                 ])
             }).catch((error) => {
-                console.log(error)
-                var message = parseJSONError(error)
+                var jsonError = JSON.stringify(error.response.data)
+                var jsonparsed = JSON.parse(jsonError)
+                var message = Object.keys(jsonparsed).map(function(k) {
+                    return jsonparsed[k];
+                  });
                 toastr.error(`Ocorreu um erro ao efetuar o login : ${message}`)
             })
         }
@@ -23,8 +26,8 @@ export function validateToken(token) {
     return dispatch => {
         if (token) {
             axios.post(consts.API_VALIDATE_TOKEN_ENDPOIT, { token })
-                .then(resp => {
-                    dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
+                .then((response) => {
+                    dispatch({ type: 'TOKEN_VALIDATED', payload: response.data.valid })
                 })
                 .catch(e => dispatch({ type: 'TOKEN_VALIDATED', payload: false }))
         } else {

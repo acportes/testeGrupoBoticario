@@ -19,10 +19,8 @@ class DashBoardOrLogin extends Component {
     render() {
         const { user, validToken } = this.props.auth
         if (user && validToken) {
-
             //Configura o HEADER default do AXIOS para informar o token em cada requisição
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.props.auth.user.token
-            
             return <App>{this.props.children}</App>
         } else if (!user && !validToken) {
             return <Login />

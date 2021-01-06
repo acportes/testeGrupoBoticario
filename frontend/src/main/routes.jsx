@@ -12,10 +12,11 @@ export default props => (
     <Router history={hashHistory}>
         <Route path='/' component={DashBoardOrLogin}>
             <IndexRoute component={Dashboard}></IndexRoute>
-            <Route path='cadastroRevendedor' component={CadastroRevendedor} />
-            <Route path='cadastroCompra' component={CadastroCompra} />
-            <Route path='consultaCompra' component={ConsultaCompra} />
+            <Route path='/cadastroRevendedor' component={CadastroRevendedor} />
+            <Route path='/cadastroCompra' component={CadastroCompra} />
+            <Route path='/consultaCompra' component={ConsultaCompra} />
+            <Redirect from='*' to='/?#'></Redirect>
         </Route>
-        <Redirect from='*' to='/'></Redirect>
+
     </Router>
 )

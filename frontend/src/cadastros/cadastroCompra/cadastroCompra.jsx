@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import InputMask from "react-input-mask";
 import { toastr } from 'react-redux-toastr'
 import moment from "moment";
+import { Link } from 'react-router';
 
 import Content from '../../common/template/content'
 import { getSummary } from '../../dashboard/dashboardActions'
@@ -20,10 +21,10 @@ class CadastroCompra extends Component {
         this.handlePurchaseDate = this.handlePurchaseDate.bind(this)
         this.onCancel = this.onCancel.bind(this)
         this.state = {
-            listDealers : null,
+            listDealers: null,
             dealerName: '',
             dealerID: 1,
-            purchaseValue:  '0000.00',
+            purchaseValue: '0000.00',
             purchaseDate: moment().format("DD-MM-YYYY")
         }
     }
@@ -79,7 +80,7 @@ class CadastroCompra extends Component {
             toastr.error('O valor da compra não pode ser R$0!')
             return false
         }
-        if(this.state.purchaseValue === ''){
+        if (this.state.purchaseValue === '') {
             toastr.error('O valor da compra não pode ser R$0!')
             return false
         }
@@ -114,7 +115,7 @@ class CadastroCompra extends Component {
     findPurchaseNextID() {
         var list = null
 
-        if(this.state.listDealers == null)
+        if (this.state.listDealers == null)
             list = this.props.listDealers
         else
             list = this.state.listDealers
@@ -125,15 +126,15 @@ class CadastroCompra extends Component {
 
     savePurchaseDealerInCache(purchaseObject) {
 
-        try{
+        try {
             var listDealers = getDealersFromSessionStorage()
             var jsonList = JSON.parse(listDealers)
             var arrayDealers = Object.keys(jsonList).map(function (k) {
                 return jsonList[k];
             });
-    
+
             var selectedDealer = arrayDealers.find(x => x.id === this.state.dealerID)
-    
+
             //Insere a compra na lista de compras do revendedor
             selectedDealer.Purchases.push(purchaseObject)
 
@@ -144,11 +145,11 @@ class CadastroCompra extends Component {
 
             return jsonList
 
-        }catch(e){
+        } catch (e) {
             return null
-        }   
+        }
     }
-    
+
     onSave() {
         //Valida o formulário
         if (this.validateForm()) {
@@ -158,18 +159,17 @@ class CadastroCompra extends Component {
 
             //Salva os dados no cache
             var saved = this.savePurchaseDealerInCache(purchaseObject)
-            if(saved){
-                this.setState({
-                    listDealers: saved
-                })
-            }else{
+
+            if (saved) {
+                location.href = '/?#/'
+            } else {
                 toastr.error('Não foi possível registrar a compra!')
             }
         }
     }
 
     onCancel() {
-        location.href = '/'
+        location.href = '/?#/'
     }
 
     populateComboBox() {
@@ -200,7 +200,7 @@ class CadastroCompra extends Component {
                                         mask='9999.99'
                                         alwaysShowMask={true}
                                         onChange={this.handlePurchaseValue}
-                                        value={this.state.purchaseValue}/>
+                                        value={this.state.purchaseValue} />
                                 </div>
                                 <div className='form-group'>
                                     <label>Data</label>
@@ -220,10 +220,10 @@ class CadastroCompra extends Component {
                             <div className='box-footer'>
                                 <button type='submit' className='btn btn-primary'
                                     style={{ minWidth: '100px' }}
-                                    onClick={this.onSave}>Salvar</button>
+                                    onClick={() => this.onSave()}>Salvar</button>
                                 <button type='button' className='btn btn-default'
                                     style={{ minWidth: '100px' }}
-                                    onClick={this.onCancel}>Cancelar</button>
+                                    onClick={() => this.onCancel()}>Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -238,5 +238,5 @@ class CadastroCompra extends Component {
 const mapStateToProps = state => ({
     listDealers: state.dashboard.listDealers
 })
-const mapDispatchToProps = dispatch => bindActionCreators({ getSummary}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ getSummary }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(CadastroCompra)

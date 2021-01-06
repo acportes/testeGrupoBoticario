@@ -158,9 +158,7 @@ class CadastroRevendedor extends Component {
             //Salva os dados no cache
             var newListDealers = this.saveNewDealerInCache(newDealer)
             if (newListDealers) {
-                this.setState({
-                    listDealers: newListDealers
-                })
+                location.href = '/?#/'
             } else {
                 toastr.error('Não foi possível registrar o revendedor!')
             }
@@ -168,7 +166,7 @@ class CadastroRevendedor extends Component {
     }
 
     onCancel() {
-        location.href = '/'
+        location.href = '/?#/'
     }
 
     render() {
@@ -220,10 +218,10 @@ class CadastroRevendedor extends Component {
                             <div className='box-footer'>
                                 <button type='submit' className='btn btn-primary'
                                     style={{ minWidth: '100px' }}
-                                    onClick={this.onSave}>Salvar</button>
+                                    onClick={() => this.onSave()}>Salvar</button>
                                 <button type='button' className='btn btn-default'
                                     style={{ minWidth: '100px' }}
-                                    onClick={this.onCancel}>Cancelar</button>
+                                    onClick={() => this.onCancel()}>Cancelar</button>
                             </div>
 
                         </div>
